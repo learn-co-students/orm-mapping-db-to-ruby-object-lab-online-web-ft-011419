@@ -103,22 +103,23 @@ class Student
     ORDER BY students.id
     SQL
 
-    DB[:conn].execute(sql).map do |row|
+    DB[:conn].execute(sql, grade).map do |row|
       self.new_from_db(row)
     end
   end
 
-  def self.first_X_students_in_grade_10(grade)
+  def self.first_X_students_in_grade_10(number)
     sql = <<-SQL
     SELECT *
     FROM students
     WHERE grade = 10
-    ORDER BY student.id
+    ORDER BY students.id
+    LIMIT ?
     SQL
 
-    DB[:conn].execute(sql).collect do |row|
+    DB[:conn].execute(sql, number).map do |row|
       self.new_from_db(row)
-    end.first
+    end
   end
 
 
