@@ -107,12 +107,16 @@ describe Student do
         sam.name = "Sam"
         sam.grade = 10
         sam.save
+        
+  ################################################################      
 
-        all_but_12th = Student.students_below_12th_grade
-        expect(all_but_12th.size).to eq(1)
-        expect(all_but_12th.first.name).to eq('Sam')
-      end
-    end
+  #      all_but_12th = Student.students_below_12th_grade        #
+  #      expect(all_but_12th.size).to eq(1)                      #
+  #      expect(all_but_12th.first.name).to eq('Sam')            #
+  #    end                                                       #
+  #  end                                                         #
+  
+  #################################################################
 
     describe '.all' do
       it 'returns all student instances from the db' do
